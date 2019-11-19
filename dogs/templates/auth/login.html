@@ -1,0 +1,35 @@
+{% extends 'dogs/index.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div class="container">
+        <center>
+                <div class="texto">
+                    <div class="regi">
+                            <img class="logins" src="{% static 'img/login.png' %}" alt="imagen login">
+                            <form method="POST">
+                                    {% csrf_token %}
+                                    <table>
+                                        <tr>
+                                            <td><label for="username">Username</label></td>
+                                            <td><input type="text" name="username" id="username" required></td>
+                                        </tr>
+                                        <tr>
+                                            <td><label for="password">Password</label>
+                                            </td>
+                                            <td><input type="password" name="password" id="password" required></td>
+                                        </tr>
+                                        <p style="color: red;">{{error}}</p>
+                                    </table>
+                                    <button type="submit">Login</button>
+                            </form>
+                    </div>
+                    </div>
+                        
+        </center>
+        
+    </div>
+    
+</main>
+{% endblock %}    
+ 

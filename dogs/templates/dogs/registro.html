@@ -1,0 +1,20 @@
+{% extends 'dogs/index.html' %}
+{% load static %}
+{% block content %}
+
+<div class="container">
+        <br>
+        <br>
+    <div class="regi">
+            <div class="texto">
+                    <h1>Crear cuenta</h1>
+                    <form   method="post">{% csrf_token %}
+                
+                        {{ form }}
+                        <input type="submit" value="Crear ">
+                    </form>
+                
+            </div>
+    </div>
+ </div>
+{% endblock %}    

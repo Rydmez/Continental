@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Continental</title>
+    <link rel="icon" href="{% static 'img/dog-icono.png' %}">
+    <link rel="stylesheet" href="{% static 'style/fontello.css' %}">
+    <link rel="stylesheet" href="{% static 'style/estil.css' %}">
+    <link rel="stylesheet" href="{% static 'style/estilos.cs' %}">
+    <link rel="stylesheet" href="{% static 'style/font-awesome.css' %}">
+    <!--ref-->
+    <script src="{% static 'js/jquery-3.1.0.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
+    <link href="https://file.myfontastic.com/K2Hqyt9UZyx6J7D9gx4cYM/icons.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="contenedor">
+            <h1 class="icon-dog">The Continental</h1>
+            <input type="checkbox" id="menu-bar">
+            <label class="icon-menu" for="menu-bar"></label>
+            {% block sidebar %}
+            <nav class="menu">
+                <a href="#">Inicio</a>
+                <a href="http://127.0.0.1:8000/formulario">Registro</a>
+                <a href="http://127.0.0.1:8000/servicios">Servicios</a>
+            {% endblock %}
+            </nav>
+        </div>
+    </header>
+       
+    {% block content %}
+    {% endblock %}
+
+    <footer class="footer">
+        <div class="social">
+           <a href="" class="icon-facebook"></a>
+           <a href="" class="icon-twitter"></a>
+           <a href="" class="icon-gplus"></a>
+        </div>
+        <p class="copy">&copy; The Continental 2019 - Todos los derechos reservados. </p>
+        <br>
+                {% if user.is_authenticated %}
+                ¡Hola {{user.username}} !
+                <form method="POST" action="/logout/">
+                    {% csrf_token %}
+                    <input type="submit" value="Logout">
+                </form>
+
+                {% endif %}
+                    <div class="redes">
+              </div>
+    </footer>
+
+
+</body>
+</html>
